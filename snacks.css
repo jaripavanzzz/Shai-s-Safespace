@@ -1,0 +1,110 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #ffe6f1;
+  margin: 0;
+  padding: 2rem;
+  color: #4a4453;
+}
+
+.snacks-page {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 8px 20px rgba(168, 129, 210, 0.1);
+  text-align: center;
+}
+
+.snacks-page h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #c084fc;
+  margin-bottom: 2rem;
+}
+
+.snack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  margin-bottom: 2rem;
+}
+
+.snack-card {
+  background: #fff0f5;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.snack-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.snack-card span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #a14ea2;
+}
+
+.add-snack-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.add-snack-form input[type="text"],
+.add-snack-form input[type="file"] {
+  width: 60%;
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.add-snack-form button {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(to right, #f48fb1, #ce93d8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.add-snack-form button:hover {
+  opacity: 0.9;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.back-home-btn {
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(to right, #f48fb1, #ce93d8);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+}
+
+.back-home-btn:hover {
+  opacity: 0.85;
+}

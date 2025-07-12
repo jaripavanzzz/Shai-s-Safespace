@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom right, #fce4ec, #f3e5f5);
+  color: #5c2a66;
+  line-height: 1.6;
+}
+
+/* HEADER */
+.hero {
+  background: linear-gradient(145deg, #f8bbd0, #ce93d8);
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0 4px 20px rgba(186, 104, 200, 0.3);
+}
+
+.hero h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* SECTION STYLING */
+.section {
+  padding: 2rem 1.5rem;
+  max-width: 960px;
+  margin: 2rem auto;
+  background: #fff9ff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(213, 130, 255, 0.2);
+    text-align: center;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: #b368e8;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: 'Pacifico', cursive;
+}
+
+/* PROFILE CARDS */
+.profiles {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #f8bbd0;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.profile h3 {
+  color: #d63384;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.profile p {
+  padding: 0 1rem;
+  color: #5e3360;
+}
+
+/* DREAMS LIST */
+.dreams ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.dreams li {
+  background: #f3e5f5;
+  padding: 1rem;
+  margin: 0.5rem auto;
+  border-radius: 12px;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(186, 104, 200, 0.2);
+  color: #6d236a;
+  font-weight: 500;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #7e3570;
+  font-weight: bold;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(to right, #f48fb1, #ce93d8);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: linear-gradient(to right, #ec407a, #ba68c8);
+  transform: scale(1.05);
+}

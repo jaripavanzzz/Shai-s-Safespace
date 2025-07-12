@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shai Home Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="lovey.css">
+</head>
+<body>
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <div class="love-header">
+    <div class="header-bar">
+      <!-- Left -->
+      <div class="nav-side">
+        <div class="nav-icon">
+          <a href="#" class="nav-btn">
+            <i class="fas fa-heart"></i><span class="nav-label">Story</span>
+          </a>
+        </div>
+        <div class="nav-icon">
+          <a href="#" class="nav-btn">
+            <i class="fas fa-music"></i><span class="nav-label">Songs</span>
+          </a>
+        </div>
+       <div class="nav-icon">
+  <a href="#" class="nav-btn" id="reasonsBtn">
+    <i class="fas fa-list-ul"></i><span class="nav-label">Reasons</span>
+  </a>
+</div>
+
+<div class="nav-icon">
+  <a href="#" class="nav-btn" id="remindersBtn">
+    <i class="fas fa-bell"></i><span class="nav-label">Reminder</span>
+  </a>
+</div>
+
+
+      <!-- Love Maze Modal -->
+<div id="loveMazeModal" class="modal hidden">
+  <div class="modal-content" style="text-align: center;">
+    <h3>Love Maze</h3>
+    <canvas 
+      id="loveMazeCanvas" 
+      width="700" height="700" 
+      style="border: 2px solid #f06292; border-radius: 10px; background: #fff;">
+    </canvas>
+    <br>
+    <button id="closeLoveMazeModal" style="margin-top: 1rem;">Close</button>
+  </div>
+</div>
+
+
+      <!-- Center -->
+      <div class="couple-center">
+        <span class="name">Shai's Safespace</span>
+      </div>
+
+      <!-- Right -->
+      <div class="nav-side">
+          <div class="nav-icon">
+  <a href="#" class="nav-btn" id="certificateBtn">
+    <i class="fas fa-certificate"></i><span class="nav-label">Certificate</span>
+  </a>
+</div>
+
+<div class="nav-icon">
+  <a href="#" id="wishesBtn" class="nav-btn">
+    <i class="fas fa-magic"></i>
+    <span class="nav-label">Wishes</span>
+  </a>
+</div>
+
+<div class="nav-icon">
+  <a href="#" class="nav-btn" id="ideasBtn">
+    <i class="fas fa-lightbulb"></i><span class="nav-label">Ideas</span>
+  </a>
+</div>
+
+        <div class="nav-icon">
+          <a href="#" class="nav-btn">
+            <i class="fas fa-chart-pie"></i><span class="nav-label">Dashboard</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Gallery -->
+  <div class="gallery-container">
+    <img src="lovey1.jpg" alt="Our special moments" class="gallery-image active">
+    <img src="lovey2.jpg" alt="Our special moments" class="gallery-image">
+    <img src="lovey3.jpg" alt="Our special moments" class="gallery-image">
+    <img src="lovey4.jpg" alt="Our special moments" class="gallery-image">
+    <img src="lovey5.jpg" alt="Our special moments" class="gallery-image">
+
+    <div class="gallery-nav">
+      <button class="gallery-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+      <button class="gallery-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <div class="gallery-dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <section class="love-counter">
+    <h2 class="counter-title">anniversary countdown</h2>
+    <div class="time-grid">
+      <div class="time-block">
+        <div class="time-value" id="days">00</div>
+        <div class="time-label">Days</div>
+      </div>
+      <div class="time-block">
+        <div class="time-value" id="hours">00</div>
+        <div class="time-label">Hours</div>
+      </div>
+      <div class="time-block">
+        <div class="time-value" id="minutes">00</div>
+        <div class="time-label">Minutes</div>
+      </div>
+      <div class="time-block">
+        <div class="time-value" id="seconds">00</div>
+        <div class="time-label">Seconds</div>
+      </div>
+    </div>
+    <div class="relationship-meta">
+      <div class="meta-block">
+        <div class="meta-value" id="monthsTogether">00</div>
+        <div class="meta-label">Months</div>
+      </div>
+      <div class="meta-block">
+        <div class="meta-value" id="yearsTogether">00</div>
+        <div class="meta-label">Years</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes -->
+  <section class="love-notes">
+    <h2 class="notes-title">Love Notes</h2>
+    <div class="notes-container" id="notesContainer"></div>
+    <button class="add-note-btn" id="openModalBtn"><i class="fas fa-plus"></i> Add Note</button>
+  </section>
+
+  <!-- Note Modal -->
+  <div id="noteModal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="modalTitle">Add a Sweet Note</h3>
+      <textarea id="noteInput" rows="5" placeholder="Write something sweet..."></textarea>
+      <div class="modal-actions">
+        <button id="saveNoteBtn">Save</button>
+        <button id="cancelNoteBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Modal: Shows buttons -->
+<div id="certificateModal" class="modal hidden">
+  <div class="modal-content" style="text-align: center;">
+    <h3>Select Certificate</h3>
+    <div class="modal-btn-group">
+      <button id="marriageCertBtn" class="modal-btn">Marriage Certificate</button>
+      <button id="gfCertBtn" class="modal-btn">Girlfriend Certificate</button>
+      <button id="closeCertModal" class="modal-btn">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Image Modal: Shows the selected certificate -->
+<div id="certImageModal" class="modal hidden">
+  <div class="modal-content image-modal-content">
+    <button id="closeCertImageModal" class="exit-btn">&times;</button>
+    <img id="certImage" src="" alt="Certificate">
+  </div>
+</div>
+
+<!-- Dashboard Modal -->
+<div id="dashboardModal" class="modal hidden">
+  <div class="modal-content dashboard-content">
+    <button id="closeDashboardModal" class="exit-btn">&times;</button>
+    <h3 style="color:#a855f7; font-family:'Pacifico', cursive;">Our Love Dashboard</h3>
+    <div class="dashboard-section">
+      <canvas id="lovePieChart" width="300" height="300"></canvas>
+      <ul id="legend"></ul>
+    </div>
+    <!-- You can add more dashboard sections below if needed -->
+<div class="dashboard-section">
+  <h4> Mood Meter</h4>
+  <p>Percentage: <span id="moodPercentage">80%</span></p>
+  <input type="range" min="0" max="100" value="80" id="moodMeter" />
+  <p>Today’s Mood: <span id="moodDescription">happy!</span></p>
+</div>
+
+    <div class="dashboard-section">
+      <h4> Sweet Counter</h4>
+      <p>How many kisses today?</p>
+      <button id="kissCountBtn" class="modal-btn">+1 Kiss</button>
+      <p>Total Kisses: <span id="kissCount">0</span></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Songs Modal -->
+<div id="songsModal" class="modal hidden">
+  <div class="modal-content">
+    <button id="closeSongsModal" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive;">Songs for You 🎶</h3>
+    <div class="songs-list">
+      <!-- Song 1 -->
+      <div class="song-item">
+        <img src="covers/cover1.png" alt="Album 1">
+        <div class="song-info">
+          <h4>Iris by Goo Goo Dolls</h4>
+          <audio controls>
+            <source src="songs/song1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 2 -->
+      <div class="song-item">
+        <img src="covers/cover2.png" alt="Album 2">
+        <div class="song-info">
+          <h4>I'll Be by Edwin McCain</h4>
+          <audio controls>
+            <source src="songs/song2.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 3 -->
+      <div class="song-item">
+        <img src="covers/cover3.png" alt="Album 3">
+        <div class="song-info">
+          <h4>Happy w u by Arthur Nery</h4>
+          <audio controls>
+            <source src="songs/song3.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 4 -->
+      <div class="song-item">
+        <img src="covers/cover4.png" alt="Album 4">
+        <div class="song-info">
+          <h4>When You Say Nothing At All by Ronan Keating</h4>
+          <audio controls>
+            <source src="songs/song4.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 5 -->
+      <div class="song-item">
+        <img src="covers/cover5.png" alt="Album 5">
+        <div class="song-info">
+          <h4>Nothing's Gonna Stop Us Now by Starship</h4>
+          <audio controls>
+            <source src="songs/song5.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 6 -->
+      <div class="song-item">
+        <img src="covers/cover6.png" alt="Album 6">
+        <div class="song-info">
+          <h4>Swear It Again by Westlife</h4>
+          <audio controls>
+            <source src="songs/song6.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 7 -->
+      <div class="song-item">
+        <img src="covers/cover7.png" alt="Album 7">
+        <div class="song-info">
+          <h4>Heaven By Your Side by A1</h4>
+          <audio controls>
+            <source src="songs/song7.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 8 -->
+      <div class="song-item">
+        <img src="covers/cover8.png" alt="Album 8">
+        <div class="song-info">
+          <h4>Drowning by Backstreet Boys</h4>
+          <audio controls>
+            <source src="songs/song8.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 9 -->
+      <div class="song-item">
+        <img src="covers/cover9.png" alt="Album 9">
+        <div class="song-info">
+          <h4>You And Me by Lifehouse</h4>
+          <audio controls>
+            <source src="songs/song9.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+
+      <!-- Song 10 -->
+      <div class="song-item">
+        <img src="covers/cover10.png" alt="Album 10">
+        <div class="song-info">
+          <h4>This Side of Paradise by Coyote Theory</h4>
+          <audio controls>
+            <source src="songs/song10.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Story Modal -->
+<div id="storyModal" class="modal hidden">
+  <div class="modal-content story-content">
+    <button id="closeStoryModal" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive; color: #c084fc;">Shai and Jali's Love Story</h3>
+    <img src="convo/first.jpg" alt="Our Love Story" style="max-width: 100%; border-radius: 12px; margin-bottom: 1rem;">
+    <p style="text-align: justify; font-family: 'DM Sans', sans-serif; line-height: 1.6;">
+      Shai and Jali’s story began in the most unexpected place — an RPW. Back then, they were just two strangers escaping reality, looking for fun and maybe a little company.
+      It was Shai who first gathered the courage to send a message. Jali still remembers that first “Hi” — how simple it was, yet how it changed her days after that. What started as small talk turned into long chats that lasted until sunrise.
+      At first, they both promised themselves it would be nothing more than friendship. Shai just wanted to make Jali laugh, and Jali liked the comfort Shai’s words brought her. Both of them were still carrying the weight of old heartbreaks. Love was the last thing on their minds.
+      But as the days passed, they couldn’t deny the little moments that made their hearts race — the good mornings and good nights, the random “ingat ka” in the middle of busy days, the way they would wait for each other online. They became each other’s safe place.
+      One night, Shai realized she didn’t just want to be Jali’s friend anymore. She wanted more — to make her smile every day, to be the reason Jali felt loved again. So Shai took the risk. She told Jali how she really felt and asked if she could court her.
+      At first, Jali was unsure. She was scared — scared of getting hurt again, scared to trust her heart. But Shai was patient. She stayed, she waited, and she showed Jali that her intentions were real.
+      Even when they weren’t official yet, Shai introduced Jali to her family. It was her way of saying, “I’m proud of you. I want you to be part of my world.” Jali felt special, and bit by bit, her walls came down.
+      Then one day, Jali finally said yes. They were so happy — it felt like they could conquer anything together. But life wasn’t easy on them. Not even a month into their relationship, problems came crashing in. Misunderstandings turned into fights, and the promises they made felt like they were slipping away.
+      They broke up. For a while, Jali thought that was it. That maybe they really weren’t meant for each other. But Shai didn’t believe that. She couldn’t accept losing Jali — not after all they’d shared, not when she knew what they could still become.
+      So Shai fought. She proved her love over and over until Jali took the risk too — she chose to stay. From then on, Shai promised herself she would never let go again.
+      After Christmas, something unexpected happened. Shai and Jali finally got to see each other in real life. It was short — just one night together — but for Jali, it was the happiest night she’d ever had. Seeing Shai, hugging her for real, hearing her voice without a screen in between — it made all the waiting worth it.
+      Since then, their relationship has been a rollercoaster. They’ve faced so many challenges that almost tore them apart again. There were nights filled with tears, days when giving up seemed easier. But every time, they chose to hold on — to fight for each other, to choose each other again and again.
+      Shai and Jali’s story isn’t perfect. But it’s real. It’s full of risks and second chances, laughter and tears, good days and hard days — and through it all, they’ve stayed.
+      And they will keep staying — because they know that no matter how tough things get, they’ll always have each other.
+    </p>
+  </div>
+</div>
+
+<!-- Reasons Modal -->
+<div id="reasonsModal" class="modal hidden">
+  <div class="modal-content reasons-content">
+    <button id="closeReasonsModal" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive; color: #c084fc;">365 Reasons Why I Love You</h3>
+    <div class="reasons-grid" id="reasonsGrid"></div>
+  </div>
+</div>
+
+<!-- Reminders Modal -->
+<div id="remindersModal" class="modal hidden">
+  <div class="modal-content reminders-content">
+    <button id="closeRemindersModal" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive;">Your Sweet Reminders</h3>
+<p style="text-align: center; font-family: 'DM Sans', sans-serif; color: #4a4453; margin-bottom: 10px;">
+  Click a category below, then press <strong>Get Reminder</strong> to see random reminder just for you 💖
+</p>
+
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+      <button class="reminder-btn" data-category="selfLove"> Self-Love & Self Care Reminders</button>
+      <button class="reminder-btn" data-category="affirmation"> Affirmation Reminders</button>
+      <button class="reminder-btn" data-category="gratitude"> Gratitude Reminders</button>
+      <button class="reminder-btn" data-category="motivation"> Motivation Reminders</button>
+      <button class="reminder-btn" data-category="reassurance"> Reassurance Reminders</button>
+      <button class="reminder-btn" data-category="everyday"> Everyday Reminders</button>
+    </div>
+
+    <!-- Display Random Reminder -->
+    <div id="reminderOutput" class="reminder-output">
+      <p>loading reminder...</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="reminder-actions">
+      <button id="getReminderBtn">Get Reminder</button>
+      <button id="copyReminderBtn">Copy</button>
+    </div>
+  </div>
+</div>
+<!-- Wishes Modal -->
+<div id="wishesModal" class="modal hidden">
+  <div class="modal-content wishes-content">
+    <button id="closeWishesModal" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive;">Wishes for You </h3>
+    <p style="text-align: center;">Pick a category and pop the bubbles! </p>
+
+    <div class="wish-categories">
+      <button class="wish-cat-btn" data-category="health"> Health</button>
+      <button class="wish-cat-btn" data-category="happiness"> Happiness</button>
+      <button class="wish-cat-btn" data-category="success"> Success</button>
+      <button class="wish-cat-btn" data-category="peace"> Peace</button>
+    </div>
+
+    <div id="wishBubbles" class="wish-bubbles"></div>
+  </div>
+</div>
+
+<!-- Popup Modal for Wish Message -->
+<div id="wishPopupModal" class="modal hidden">
+  <div class="modal-content wish-modal-content">
+    <button id="closeWishPopupBtn" class="exit-btn">&times;</button>
+    <p id="wishMessageText" class="wish-message-text"></p>
+  </div>
+</div>
+
+<!-- Ideas Modal -->
+<div id="ideasModal" class="modal hidden">
+  <div class="modal-content ideas-content">
+    <button id="closeIdeasModal" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive;">Date Ideas Spinner 🎡</h3>
+    <div class="wheel-container">
+      <div class="pointer-arrow">▼</div>
+      <canvas id="spinWheel" width="300" height="300"></canvas>
+      <button id="spinBtn" class="modal-btn">Spin</button>
+    </div>
+  </div>
+</div>
+
+<!-- Spin Result Popup -->
+<div id="spinPopupModal" class="modal hidden">
+  <div class="modal-content spin-popup-content">
+    <button id="closeSpinPopupBtn" class="exit-btn">&times;</button>
+    <h3 style="font-family: 'Pacifico', cursive;">Your Date Idea 🎉</h3>
+    <p id="spinResultText" style="font-size: 1.2rem; font-family: 'DM Sans', sans-serif; color: #4a4453; margin-top: 1rem; text-align: center;"></p>
+  </div>
+</div>
+
+
+<section class="about-us-section">
+  <p>Click the picture to know about us! </p>
+  <a href="aboutus.html">
+    <img src="pics/us.jpg" alt="About Us">
+  </a>
+</section>
+
+<section class="snacks-section">
+  <p>Click the picture to see our Food Corner! </p>
+  <a href="snacks.html">
+    <img src="pics/snacks.jpg" alt="Snacks Page">
+  </a>
+</section>
+
+
+
+
+
+
+  <footer>07-13-2025</footer>
+
+  <script src="lovey.js"></script>
+</body>
+</html>

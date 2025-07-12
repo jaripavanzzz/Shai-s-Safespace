@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shai Food Corner Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="snacks.css">
+</head>
+<body>
+  <section class="snacks-page">
+    <h2>Our Favorite Snacks </h2>
+    
+    <div class="snack-grid" id="snackGrid">
+      <!-- Snacks added by JS will appear here -->
+    </div>
+
+    <!-- Add Snack Button -->
+    <div class="add-snack-form">
+      <h3>Add a Snack</h3>
+      <input type="file" id="snackImgInput" accept="image/*">
+      <input type="text" id="snackLabelInput" placeholder="Enter snack name">
+      <button id="addSnackBtn">Add Snack</button>
+    </div>
+  </section>
+
+  <footer>
+    <button id="backHomeBtn" class="back-home-btn">Back to Homepage</button>
+  </footer>
+
+  <script src="snacks.js"></script>
+</body>
+</html>

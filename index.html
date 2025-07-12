@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shai Landing Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Gift Modal -->
+  <div id="giftModal">
+    <div class="modal-box">
+      <h2>Are you Shai?</h2>
+      <p>This page is private and meant only for someone special.</p>
+      <div class="modal-buttons">
+        <button id="yesBtn">Yes</button>
+        <button class="decline" id="noBtn">No</button>
+      </div>
+      <p id="declineMsg" style="display: none;">You're not Shai, please don't open this. 😠</p>
+    </div>
+  </div>
+
+  <!-- Welcome Modal -->
+  <div id="welcomeModal">
+    <div class="modal-box">
+      <h2>Welcome to Shai's Safespace!</h2>
+      <p>I hope you'll like it, bae bae. Happy Anniversary!</p>
+      <button id="closeWelcomeBtn">Close</button>
+    </div>
+  </div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="circle-loader"></div>
+    <p>Loading love…</p>
+  </div>
+
+    <!-- Background Video -->
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="VIDS/baebylovey.mp4" type="video/mp4" />
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Lock Box -->
+  <main id="lockBox" class="lock-container">
+    <h1>Enter our anniversary date</h1>
+    <div class="passcode-container">
+      <div class="passcode-wrapper">
+        <input type="password" id="passcodeDisplay" readonly placeholder="Enter Passcode" />
+        <button id="togglePassBtn" title="Show/Hide">👁</button>
+      </div>
+      <p id="message"></p>
+      <div class="custom-numpad">
+        <button class="num-key">1</button>
+        <button class="num-key">2</button>
+        <button class="num-key">3</button>
+        <button class="num-key">4</button>
+        <button class="num-key">5</button>
+        <button class="num-key">6</button>
+        <button class="num-key">7</button>
+        <button class="num-key">8</button>
+        <button class="num-key">9</button>
+        <button class="num-key">0</button>
+        <button class="num-key" id="clearBtn">←</button>
+        <button class="num-key" id="enterBtn">⏎</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

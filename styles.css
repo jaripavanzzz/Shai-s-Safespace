@@ -1,0 +1,346 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  color: #fff;
+}
+
+#bgVideo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(250, 200, 255, 0.45), rgba(220, 170, 255, 0.45));
+  mix-blend-mode: screen;
+  z-index: -2;
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #d7a0f7;
+  z-index: 10;
+  transition: opacity .6s;
+}
+
+.circle-loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #f48fb1;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#preloader p {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+}
+
+.lock-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+  transition: .6s;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  width: clamp(300px, 90vw, 400px);
+}
+
+h1 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: #ffe7f2;
+}
+
+
+.passcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.passcode-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 220px;
+}
+
+#passcodeDisplay {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem; /* adjust right padding for the icon */
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid #f06292;
+  border-radius: 10px;
+  letter-spacing: 5px;
+  background: #fff0f5;
+  color: #f06292;
+  box-sizing: border-box;
+}
+
+
+#passcodeDisplay::placeholder {
+  font-size: 0.85rem;
+  color: #e191b1;
+  text-align: center;
+}
+
+
+
+#togglePassBtn {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* tightly inside the input */
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #f06292;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.passcode-wrapper {
+  position: relative;
+  width: 240px; /* same as input width */
+  margin: 0 auto; /* center the wrapper */
+}
+
+
+
+.custom-numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  gap: 15px;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.custom-numpad .num-key {
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: #ffc1e3;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: 0.25s ease;
+  color: #7a003c;
+  font-weight: bold;
+}
+
+.custom-numpad .num-key:hover {
+  background-color: #f48fb1;
+  transform: translateY(-3px);
+}
+
+.custom-numpad .num-key:active {
+  transform: scale(0.96);
+  background-color: #ec7da5;
+}
+
+#message {
+  font-size: 0.95rem;
+  color: #ff9c9c;
+  height: 1.2em;
+}
+
+.success {
+  color: #9cffcd;
+}
+
+#giftModal {
+  position: fixed;
+  inset: 0;
+  display: flex; /* Show on page load */
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(230, 200, 255, 0.85), rgba(255, 210, 230, 0.85));
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  animation: fadeIn 0.4s ease;
+}
+
+#welcomeModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(230, 200, 255, 0.85), rgba(255, 210, 230, 0.85));
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  animation: fadeIn 0.4s ease;
+}
+
+
+.modal-box {
+  background: linear-gradient(145deg, #fce8ff, #f9d8ec);
+  border-radius: 1.8rem;
+  padding: 2.8rem 2.2rem;
+  text-align: center;
+  color: #6d236a;
+  animation: popFade 0.5s ease;
+  box-shadow: 0 0 25px rgba(193, 108, 193, 0.3);
+  max-width: 420px;
+  width: 90%;
+}
+
+.modal-box h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b368e8;
+  margin-bottom: 1.2rem;
+}
+
+.modal-box p {
+  font-size: 1rem;
+  color: #a23f82;
+  margin-bottom: 2rem;
+}
+
+.modal-box button {
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  background: #d88ff0;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(186, 94, 255, 0.3);
+}
+
+.modal-box button:hover {
+  background: #c176e4;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(186, 94, 255, 0.4);
+}
+
+.modal-box button:active {
+  transform: scale(0.96);
+}
+
+@keyframes popFade {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(255, 240, 255, 0.8);
+  }
+}
+
+
+
+
+
+#togglePassBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #f06292;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  background: #f8a5c2;
+  color: white;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #f48fb1;
+  transform: scale(1.05);
+}
+
+/* Modal Buttons */
+.modal-box button {
+  padding: 0.7rem 2.5rem;
+  border: none;
+  border-radius: 0.9rem;
+  background: #cba3ff;
+  color: #3b2178;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(145, 95, 210, 0.4);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.modal-box button:hover {
+  background: #9f6aff;
+  box-shadow: 0 10px 20px rgba(137, 85, 255, 0.7);
+  transform: translateY(-3px);
+}
+
+.modal-box button:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 10px rgba(122, 68, 255, 0.5);
+}
+
+/* Decline Button */
+.modal-box button.decline {
+  background: #ffb6d7;
+  color: #7a2c44;
+  box-shadow: 0 6px 12px rgba(255, 133, 174, 0.6);
+}
+
+.modal-box button.decline:hover {
+  background: #ff8ab8;
+  box-shadow: 0 10px 20px rgba(255, 97, 156, 0.9);
+}
